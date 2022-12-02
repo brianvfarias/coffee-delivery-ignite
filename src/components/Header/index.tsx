@@ -11,7 +11,7 @@ export function Header() {
           <MapPin size={22} weight="fill" />
           <span>Baturité, CE</span>
         </LocationWrapper>
-        <CartWrapper>
+        <CartWrapper >
           <ShoppingCart size={22} weight="fill" />
         </CartWrapper>
       </DisplayInfo>

@@ -4,8 +4,7 @@ export const HeaderContainer = styled.header`
   height: 6.5rem;
   display: flex;
   justify-content: space-between;
-  padding-left: 10rem;
-  padding-right: 10rem;
+  padding-inline: 10rem;
   align-items: center;
 `;
 
@@ -27,13 +26,14 @@ export const LocationWrapper = styled.div`
   color: ${(props) => props.theme["purple-dark"]};
 `;
 
-export const CartWrapper = styled.div`
+export const CartWrapper = styled.button`
   width: 2.5rem;
   height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 6px;
+  border: none;
   background-color: ${(props) => props.theme["yellow-light"]};
   color: ${(props) => props.theme["yellow-dark"]};
 `;

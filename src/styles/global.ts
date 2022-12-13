@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${(props) => props.theme["base-card"]};
+    background-color: ${(props) => props.theme.white};
   }
 
   body, input, text-area, button{

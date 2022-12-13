@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
 export const LayoutContainer = styled.div`
-  background-color: ${(props) => props.theme["base-card"]};
+  background-color: ${(props) => props.theme.white};
 `;

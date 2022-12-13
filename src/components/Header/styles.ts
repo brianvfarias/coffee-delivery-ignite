@@ -30,10 +30,35 @@ export const CartWrapper = styled.button`
   width: 2.5rem;
   height: 2.5rem;
   display: flex;
+  flex-direction: column;
+  gap: 0;
   align-items: center;
   justify-content: center;
   border-radius: 6px;
   border: none;
   background-color: ${(props) => props.theme["yellow-light"]};
   color: ${(props) => props.theme["yellow-dark"]};
+  position: absolute;
+
+  & .shoppingCart {
+    position: absolute;
+  }
+`;
+
+export const OrderAmount = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  border: none;
+  border-radius: 100%;
+  background-color: ${(props) => props.theme["yellow-dark"]};
+  width: 1.25rem;
+  height: 1.25rem;
+  top: -0.75rem;
+  left: 1.5rem;
+
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.white};
 `;

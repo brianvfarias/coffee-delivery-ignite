@@ -1,13 +1,13 @@
-import { BuyingInfo, CoffeCard, DisplayList, HomeContainer, Intro, ListOfCoffes } from "./styles";
+import { DisplayList, HomeContainer, Intro, ListOfCoffes } from "./styles";
 import remarkableIMG from "../../assets/Imagem.svg"
 import { useContext } from "react";
 import { ShoppingCart, Timer, Package, Coffee } from "phosphor-react"
-import { ProductsContext } from "../../contexts/ProductsContext";
-
+import { CoffeCard } from "./components/CoffeCard";
+import { CoffeeOrdersContext } from "../../contexts/CoffeeOrdersContexts";
 
 
 export function Home() {
-  const { products } = useContext(ProductsContext)
+  const { products } = useContext(CoffeeOrdersContext)
   return (
     <HomeContainer>
       <Intro >
@@ -37,27 +37,7 @@ export function Home() {
         <ListOfCoffes>
           {
             products.map(product => {
-              return (
-                <CoffeCard key={product.id}>
-                  <img src={product.imgFile} alt="" />
-                  <span className="categories">
-                    {product.categories.map(category => {
-                      return (
-                        <span key={category} className="category">{category.toUpperCase()}</span>
-                      )
-                    })}
-                  </span>
-                  <h3>{product.name}</h3>
-                  <span className="description">{product.description}</span>
-                  <BuyingInfo>
-                    <span className="price">{product.price}</span>
-                    <input type="number" name="" id="" />
-                    <button>
-                      <ShoppingCart size={22} weight="fill" />
-                    </button>
-                  </BuyingInfo>
-                </CoffeCard>
-              )
+              return <CoffeCard key={product.id} product={product} />
             })
           }
         </ListOfCoffes>

@@ -1,5 +1,5 @@
 import { Card, BuyingInfo } from "./styles";
-import { Product } from "../../../../contexts/CoffeeOrdersContexts"
+import { ProductType } from "../../../../contexts/CoffeeOrdersContexts"
 import { ShoppingCart } from "phosphor-react"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { CoffeeOrdersContext } from "../../../../contexts/CoffeeOrdersContexts";
 
 interface CoffeCardProps {
-  product: Product
+  product: ProductType
 }
 
 const NewOrderSchema = z.object({

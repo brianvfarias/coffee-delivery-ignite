@@ -2,7 +2,8 @@
 import { Minus, Plus, Trash } from "phosphor-react";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { CoffeeOrdersContext, OrdersInCartType } from "../../../../contexts/CoffeeOrdersContexts";
+import { CoffeeOrdersContext } from "../../../../contexts/CoffeeOrdersContexts";
+import { OrdersInCartType } from "../../../../reducers/orders/reducer"
 import { OrderType } from "../../../Home/components/CoffeCard";
 import { CoffeeOrderedContainer } from "./styles";
 
@@ -14,7 +15,7 @@ export function CoffeeOrdered({ order }: CoffeeOrderedPropsType) {
   const { handleSubmit } = useForm()
   const { updateCoffeeInOrder, removeCoffeeInOrder } = useContext(CoffeeOrdersContext)
 
-  function subtractCoffeeInOrder() {
+  function handleSubtractCoffeeInOrder() {
     const data: OrderType = {
       coffeeName: order.product!.name,
       amountOfCoffees: order.amount - 1
@@ -26,7 +27,7 @@ export function CoffeeOrdered({ order }: CoffeeOrderedPropsType) {
     removeCoffeeInOrder(data)
   }
 
-  function addCoffeeMoreCoffeeInOrder() {
+  function handleAddCoffeeMoreCoffeeInOrder() {
     const data: OrderType = {
       coffeeName: order.product!.name,
       amountOfCoffees: order.amount + 1
@@ -35,7 +36,7 @@ export function CoffeeOrdered({ order }: CoffeeOrderedPropsType) {
     updateCoffeeInOrder(data)
   }
 
-  function removeCoffeeFromOrder() {
+  function handleRemoveCoffeeFromOrder() {
     const data: OrderType = {
       coffeeName: order.product!.name,
       amountOfCoffees: order.amount + 1
@@ -52,11 +53,11 @@ export function CoffeeOrdered({ order }: CoffeeOrderedPropsType) {
       <span className="price" >{order.product?.price}</span>
       <div className="updateOrder">
         <div className="addOrSubtract">
-          <button onClick={handleSubmit(subtractCoffeeInOrder)}><Minus size={14} color={"#8047F8"} /> </button>
+          <button onClick={handleSubmit(handleSubtractCoffeeInOrder)}><Minus size={14} color={"#8047F8"} /> </button>
           <span>{order.amount}</span>
-          <button onClick={handleSubmit(addCoffeeMoreCoffeeInOrder)} ><Plus size={14} color={"#8047F8"} /> </button>
+          <button onClick={handleSubmit(handleAddCoffeeMoreCoffeeInOrder)} ><Plus size={14} color={"#8047F8"} /> </button>
         </div>
-        <button className="remove" onClick={handleSubmit(removeCoffeeFromOrder)} > <Trash size={16} color={"#8047F8"} /> REMOVER</button>
+        <button className="remove" onClick={handleSubmit(handleRemoveCoffeeFromOrder)} > <Trash size={16} color={"#8047F8"} /> REMOVER</button>
       </div>
     </CoffeeOrderedContainer>
   )
